@@ -9,7 +9,7 @@ namespace EmployeeManagementSystem.Model
 
         public string Email { get; set; }
         public string Phone { get; set; }
-        [ForeignKey("DepartmentId")]
+      
         public int DepartmentId { get; set; }
         public string department {  get; set; }
     }

@@ -15,10 +15,10 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 
 app.UseHttpsRedirection();
-
+app.MapControllers();
 
 app.Run();
-app.MapControllers();
+
 
 internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {

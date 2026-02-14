@@ -19,14 +19,19 @@ namespace EmployeeManagementSystem.Controller
         [HttpPost]
         public async Task<IActionResult> Post(EmpDto lt)
         {
-            var Employee = new Employee
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var Emp = new Employee
             {
                 Name = lt.Name,
                 Email = lt.Email,
-                department = lt.Department
+                Phone = lt.phone,
+                department = lt.Department,
+                DepartmentId = lt.DepartmentId
+                
             };
 
-            await _repo.Employees.AddAsync(Employee);
+            await _repo.Employees.AddAsync(Emp);
             await _repo.SaveChangesAsync();
             return Ok("Saved Employee Details");
             
